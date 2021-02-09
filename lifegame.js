@@ -118,8 +118,9 @@ function countAround(x, y){
 }
 
 function canvasClick(e){
-    var x = e.clientX - canvas.offsetLeft;
-    var y = e.clientY - canvas.offsetTop;
+    var rect = e.target.getBoundingClientRect();
+    var x = e.clientX - rect.left;
+    var y = e.clientY - rect.top;
     var col = Math.floor(x / cellSize);
     var row = Math.floor(y / cellSize);
     cells[col][row] = !cells[col][row];
